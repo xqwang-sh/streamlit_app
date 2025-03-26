@@ -190,12 +190,16 @@ with st.expander("练习1：巨无霸汇率计算"):
             "澳大利亚": {"price": 6.4, "currency": "澳元", "exchange_rate": 1.3}
         }
         
-        us_price = st.number_input("美国巨无霸价格(美元)", value=5.0, step=0.1)
+        us_price = st.number_input("美国巨无霸价格(美元)", value=5.0, min_value=0.0, max_value=100.0, step=0.1)
         local_price = st.number_input(f"{country}巨无霸价格({country_data[country]['currency']})", 
-                                    value=country_data[country]["price"], 
+                                    value=float(country_data[country]["price"]), 
+                                    min_value=0.0,
+                                    max_value=1000.0,
                                     step=0.1)
         market_rate = st.number_input(f"市场汇率(1美元={country_data[country]['currency']})", 
-                                    value=country_data[country]["exchange_rate"], 
+                                    value=float(country_data[country]["exchange_rate"]), 
+                                    min_value=0.0,
+                                    max_value=1000.0,
                                     step=0.01)
     
     with col_b:

@@ -136,7 +136,12 @@ with st.sidebar:
     </div>
     """, unsafe_allow_html=True)
     
-    api_key = st.text_input("输入DeepSeek API密钥（可选）", type="password")
+    # 设置默认API密钥
+    default_api_key = "sk-9f93d5bf3dec40a3bb52d5824b261f6c"
+    
+    # 在输入框中显示默认API密钥
+    api_key = st.text_input("输入DeepSeek API密钥", value=default_api_key, type="password")
+    
     if st.button("设置API密钥"):
         if api_key:
             try:
